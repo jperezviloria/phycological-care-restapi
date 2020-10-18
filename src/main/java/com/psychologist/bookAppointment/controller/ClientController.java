@@ -1,6 +1,7 @@
 package com.psychologist.bookAppointment.controller;
 
 import com.psychologist.bookAppointment.dto.generic.RestResponse;
+import com.psychologist.bookAppointment.model.Attention;
 import com.psychologist.bookAppointment.model.Client;
 import com.psychologist.bookAppointment.service.implementation.ClientServiceImplementation;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @RestController
@@ -42,6 +44,11 @@ public class ClientController {
 //        return new RestResponse<List<Client>>(httpStatus, clientList);
 //        }
 
+    @GetMapping("/boolean")
+    public List<Client> getTrueClient(){
+        return clientServiceImplementation.getTrueClients(false);
+    }
+
     @PostMapping("/save_client")
     public String saveClient (@RequestBody Client client){
         return clientServiceImplementation.saveClient(client);
@@ -52,6 +59,12 @@ public class ClientController {
 //        httpStatus = HttpStatus.OK;
 //        return new RestResponse<>(httpStatus, savedClient);
 //    }
+
+        @GetMapping("/change_status/{idClient}")
+    public String changeStatus (@PathVariable String idClient){
+        return clientServiceImplementation.changeStatusById(idClient);
+
+    }
 }
 
 

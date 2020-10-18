@@ -9,11 +9,15 @@ public interface IClientService {
 
     List<Client> getAllClients();
 
+    List<Client> getTrueClients(Boolean resolveClient);
+
     Optional<Client> getClientById(String idClient);
 
     String saveClient(Client client);
 
     void deleteClientById(String idClient);
+
+    String changeStatusById(String idClient);
 
 
 
