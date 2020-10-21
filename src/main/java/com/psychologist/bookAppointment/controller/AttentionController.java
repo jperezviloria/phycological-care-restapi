@@ -23,7 +23,7 @@ import java.util.Map;
 public class AttentionController {
 
     @Autowired
-    AttentionServiceImplementation attentionServiceImplementation;
+    AttentionServiceImplementation attentionServiceImplementation; 
 
     @Autowired
     CloudinaryServiceImplementation cloudinaryServiceImplementation;
