@@ -50,6 +50,11 @@ public class ClientController {
 //        return new RestResponse<List<Client>>(httpStatus, clientList);
 //        }
 
+    @GetMapping("/{idClient}")
+    public Optional<Client> getCLientById(@PathVariable String idClient){
+        return clientServiceImplementation.getClientById(idClient);
+    }
+
     @GetMapping("/boolean")
     public List<Client> getTrueClient(){
         return clientServiceImplementation.getTrueClients(false);
